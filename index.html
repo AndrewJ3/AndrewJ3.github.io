@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Andrew Jones - Computational Scientist specializing in meshfree methods, particle-in-cell simulations, and high-performance computing">
+    <meta name="author" content="Andrew Jones">
+    <title>Andrew Jones | Computational Scientist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c5282;
+            --secondary: #1a365d;
+            --accent: #3182ce;
+            --text: #2d3748;
+            --text-light: #4a5568;
+            --bg: #ffffff;
+            --bg-secondary: #f7fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        header .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        header .contact-info {
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        header .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        header .contact-info a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        nav {
+            background: var(--bg-secondary);
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .research-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .research-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .experience-item, .education-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .experience-item .position, .education-item .degree {
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .date, .education-item .date {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            color: var(--text);
+        }
+
+        .skill-category li:before {
+            content: "▹ ";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .publications-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .publication-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .publication-item .pub-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .publication-item .pub-authors {
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .publication-item .pub-venue {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Andrew Jones</h1>
+            <p class="subtitle">Computational Scientist & Developer</p>
+            <p>Ph.D. in Computing | Meshfree Methods | High-Performance Computing</p>
+            <div class="contact-info">
+                <a href="mailto:amjones40022@gmail.com">✉ amjones40022@gmail.com</a>
+                <a href="https://github.com/andrewj3" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/andrew-jones" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    I am a computational scientist with a Ph.D. in Computing from Boise State University and recent postdoctoral experience at Sandia National Laboratories. My research focuses on developing advanced numerical methods for solving partial differential equations, with particular expertise in meshfree methods, particle-in-cell plasma simulations, and high-performance computing.
+                </p>
+                <p style="margin-top: 20px;">
+                    My work combines rigorous mathematical foundations with practical implementation in modern programming languages and parallel computing frameworks. I am passionate about applying computational techniques to solve complex scientific and engineering problems, from atmospheric modeling and plasma physics simulations to computational fluid dynamics.
+                </p>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#contact" class="btn">Get In Touch</a>
+                    <a href="path/to/your/cv.pdf" class="btn" download>Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="container">
+            <h2>Research Interests</h2>
+            <div class="research-areas">
+                <div class="research-card">
+                    <h4>Meshfree Methods</h4>
+                    <p>Developing radial basis function finite difference (RBF-FD) and generalized moving least squares (GMLS) methods for solving PDEs on complex geometries and surfaces.</p>
+                </div>
+                <div class="research-card">
+                    <h4>Particle-in-Cell Simulations</h4>
+                    <p>Advanced plasma physics simulations for ion mobility spectrometry and SF6 leak detection applications using computational particle methods.</p>
+                </div>
+                <div class="research-card">
+                    <h4>High-Performance Computing</h4>
+                    <p>Implementing scalable numerical algorithms using parallel computing frameworks including OpenMP, Kokkos, and SLURM job orchestration.</p>
+                </div>
+                <div class="research-card">
+                    <h4>Numerical Methods for PDEs</h4>
+                    <p>Research in computational methods for reaction-diffusion equations, atmospheric flow modeling, and ion focusing optics optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Sandia National Laboratories</h3>
+                <div class="position">Postdoctoral Appointee</div>
+                <div class="date">December 2022 - September 2025</div>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Developed particle-in-cell plasma simulations for ion mobility spectrometry and SF6 leak detection applications</li>
+                    <li>Created computational pipelines using SLURM job orchestration, Python analysis tools, and ParaView batch processing</li>
+                    <li>Contributed to code refactoring efforts implementing Kokkos for improved performance</li>
+                    <li>Performed benchmarking studies comparing OpenMP implementations</li>
+                    <li>Developed 3D simulation visualization workflows using ParaView</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Sandia National Laboratories</h3>
+                <div class="position">Graduate Research Intern</div>
+                <div class="date">May 2020 - December 2022</div>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Conducted research on computational methods for plasma physics applications</li>
+                    <li>Developed meshfree numerical methods for scientific computing</li>
+                    <li>Gained experience with national laboratory research environment and workflows</li>
+                    <li>Collaborated with researchers on high-performance computing projects</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Boise State University</h3>
+                <div class="position">Graduate Teaching Assistant</div>
+                <div class="date">During Ph.D. program</div>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Assisted students with introductory computer science coursework</li>
+                    <li>Provided tutoring and support for programming fundamentals</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <h3>Boise State University</h3>
+                <div class="degree">Ph.D. in Computing</div>
+                <div class="date">Completed 2022</div>
+                <p style="margin-top: 10px;">
+                    <strong>Dissertation:</strong> Meshfree methods for PDEs on surfaces<br>
+                    <strong>Advisors:</strong> Dr. Grady Wright and Dr. Peter Bosler<br>
+                    <strong>Research Focus:</strong> Advanced numerical techniques including RBF-FD and GMLS methods for atmospheric flow modeling, reaction-diffusion equations, and complex surface geometries
+                </p>
+            </div>
+
+            <div class="education-item">
+                <h3>Kennesaw State University</h3>
+                <div class="degree">B.S. in Physics</div>
+                <div class="date">2018</div>
+                <p style="margin-top: 10px;">
+                    <strong>Research:</strong> Computational fluid dynamics for pebble bed reactors using OpenFOAM, detector design with Raspberry Pi for alpha particle radiation detection, astrophysics research on quasars and active galactic nuclei<br>
+                    <strong>Coursework:</strong> Nuclear engineering fundamentals, advanced physics, astrophysics<br>
+                    <strong>Selected Publications:</strong> Co-authored papers on the sub-Eddington boundary for quasars and the redshift distribution of BL Lacs and FSRQs
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <ul>
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>FORTRAN</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>HPC & Parallel Computing</h4>
+                    <ul>
+                        <li>OpenMP</li>
+                        <li>Kokkos</li>
+                        <li>SLURM</li>
+                        <li>PBS Job Scheduling</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Scientific Computing</h4>
+                    <ul>
+                        <li>Meshfree Methods (RBF-FD, GMLS)</li>
+                        <li>Particle-in-Cell Methods</li>
+                        <li>Numerical PDEs</li>
+                        <li>Computational Fluid Dynamics</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Tools & Software</h4>
+                    <ul>
+                        <li>ParaView</li>
+                        <li>OpenFOAM</li>
+                        <li>Git/GitHub</li>
+                        <li>LaTeX</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <div class="container">
+            <h2>Selected Publications</h2>
+            <div class="publications-list">
+                <div class="publication-item">
+                    <div class="pub-title">Generalized moving least squares vs. radial basis function finite difference methods for approximating surface derivatives</div>
+                    <div class="pub-authors">A. Jones, P. Bosler, P. Kuberry, G.B. Wright</div>
+                    <div class="pub-venue">Computers & Mathematics with Applications, October 2023</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">The sub-Eddington boundary for the quasar mass-luminosity plane: A theoretical perspective</div>
+                    <div class="pub-authors">D. Garofalo, D.J. Christian, A.M. Jones</div>
+                    <div class="pub-venue">Universe, 2019</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">The redshift distribution of BL Lacs and FSRQs</div>
+                    <div class="pub-authors">D. Garofalo, C.B. Singh, D.T. Walsh, D.J. Christian, A.M. Jones, A. Zack, B. Webster, M.I. Kim</div>
+                    <div class="pub-venue">Research in Astronomy and Astrophysics, 2018</div>
+                </div>
+
+                <p style="text-align: center; margin-top: 30px; color: var(--text-light);">
+                    For a complete list of publications, please see my <a href="https://scholar.google.com" target="_blank" style="color: var(--accent);">Google Scholar profile</a> or <a href="https://www.researchgate.net/profile/Andrew-Jones-145" target="_blank" style="color: var(--accent);">ResearchGate</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="about-content" style="text-align: center;">
+                <p>I am currently seeking opportunities in academia, national laboratories, and industry. I am available for:</p>
+                <ul style="list-style: none; margin-top: 20px; line-height: 2;">
+                    <li>Faculty and research positions</li>
+                    <li>Postdoctoral fellowships</li>
+                    <li>Computational consulting projects</li>
+                    <li>Scientific illustration and visualization work</li>
+                    <li>Research collaborations</li>
+                </ul>
+                <div style="margin-top: 30px;">
+                    <a href="mailto:amjones40022@gmail.com" class="btn">Email Me</a>
+                </div>
+                <p style="margin-top: 30px; color: var(--text-light);">
+                    <strong>Location:</strong> Marietta, Georgia<br>
+                    <strong>Clearance:</strong> DOE-Q Security Clearance
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Andrew Jones. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                Computational Scientist | Ph.D. in Computing | HPC Specialist
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
